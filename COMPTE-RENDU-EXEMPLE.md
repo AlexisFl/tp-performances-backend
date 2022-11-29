@@ -14,7 +14,7 @@ Vous pouvez utiliser ce [GSheets](https://docs.google.com/spreadsheets/d/13Hw27U
 
 ## Question 3 : Réduction du nombre de connexions PDO
 
-**Temps de chargement de la page** : 31.1
+**Temps de chargement de la page** : 29.0
 
 **Temps consommé par `getDB()`** 
 
