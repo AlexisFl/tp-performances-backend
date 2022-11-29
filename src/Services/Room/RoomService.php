@@ -4,13 +4,14 @@ namespace App\Services\Room;
 
 use App\Entities\RoomEntity;
 use PDO;
+use App\Services\Hotel\PDOSingleton;
 
 class RoomService extends AbstractRoomService {
   
   private PDO $db;
   
   public function __construct() {
-    $this->db = new PDO( "mysql:host=db;dbname=tp;charset=utf8mb4", "root", "root" );
+    $this->db = PDOSingleton::get();
   }
   
   protected function getDB() : PDO {
