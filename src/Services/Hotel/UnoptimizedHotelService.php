@@ -48,23 +48,23 @@ class UnoptimizedHotelService extends AbstractHotelService {
    *
    * @return string|null
    */
-  protected function getMeta ( int $userId, string $key ) : ?string {
-    $timer = Timers::getInstance();
-    $timerId = $timer->startTimer('appellepdo');
-    $db = $this->getDB();
-    $timer->endTimer('appellepdo', $timerId);
-    $stmt = $db->prepare( "SELECT * FROM wp_usermeta" );
-    $stmt->execute();
-    
-    $result = $stmt->fetchAll( PDO::FETCH_ASSOC );
-    $output = null;
-    foreach ( $result as $row ) {
-      if ( $row['user_id'] === $userId && $row['meta_key'] === $key )
-        $output = $row['meta_value'];
+    protected function getMeta(int $userId, string $key): ?string
+    {
+        $timer = Timers::getInstance();
+        $timerId = $timer->startTimer('getMeta SQL');
+        $db = $this->getDB();
+
+
+
+        $stmt = $db->prepare("SELECT * FROM wp_usermeta WHERE user_id=:userId AND meta_key=:meta_key");
+        $stmt->execute();
+
+        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        $timer->endTimer('getMeta SQL', $timerId);
+
+        return $result['meta_value'] ?? null;
     }
-    
-    return $output;
-  }
   
   
   /**

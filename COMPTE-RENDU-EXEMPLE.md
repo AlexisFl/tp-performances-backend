@@ -1,4 +1,3 @@
-Vous pouvez utiliser ce [GSheets](https://docs.google.com/spreadsheets/d/13Hw27U3CsoWGKJ-qDAunW9Kcmqe9ng8FROmZaLROU5c/copy?usp=sharing) pour suivre l'évolution de l'amélioration de vos performances au cours du TP 
 
 ## Question 2 : Utilisation Server Timing API
 
@@ -32,12 +31,12 @@ Vous pouvez utiliser ce [GSheets](https://docs.google.com/spreadsheets/d/13Hw27U
 - **Après** TEMPS
 
 
-#### Amélioration de la méthode `METHOD` et donc de la méthode `METHOD` :
+#### Amélioration de la méthode `getMeta` et donc de la méthode `getMetas` :
 
-- **Avant** TEMPS
+- **Avant** 2.97 s
 
 ```sql
--- REQ SQL DE BASE
+"SELECT * FROM wp_usermeta"
 ```
 
 - **Après** TEMPS
