@@ -140,7 +140,7 @@ ALTER TABLE `wp_posts` ADD INDEX(`post_author`);
 ### Table `hotels` (200 lignes)
 
 ```SQL
--- REQ SQL CREATION TABLE
+CREATE TABLE `tp`.`hotels` (`id` INT NOT NULL AUTO_INCREMENT , `nom` VARCHAR NOT NULL , `email` VARCHAR NOT NULL , `telephone` INT NOT NULL , `addresse1` VARCHAR NOT NULL , `addresse2` VARCHAR NOT NULL , `ville` VARCHAR NOT NULL , `code` VARCHAR NOT NULL , `pays` VARCHAR NOT NULL , `longitude` FLOAT NOT NULL , `latitude` FLOAT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
 
 ```SQL
@@ -150,7 +150,7 @@ ALTER TABLE `wp_posts` ADD INDEX(`post_author`);
 ### Table `rooms` (1 200 lignes)
 
 ```SQL
--- REQ SQL CREATION TABLE
+CREATE TABLE `tp`.`rooms` (`id` INT NOT NULL AUTO_INCREMENT , `id_hotel` INT NOT NULL , `titre` VARCHAR NOT NULL , `price` FLOAT NOT NULL , `bedrooms` INT NOT NULL , `bathrooms` INT NOT NULL , `surface` INT NOT NULL , `type` VARCHAR NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
 
 ```SQL
@@ -160,7 +160,7 @@ ALTER TABLE `wp_posts` ADD INDEX(`post_author`);
 ### Table `reviews` (19 700 lignes)
 
 ```SQL
--- REQ SQL CREATION TABLE
+CREATE TABLE `tp`.`reviews` (`id` INT NOT NULL , `id_hotel` INT NOT NULL , `review` INT NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
 ```
 
 ```SQL
