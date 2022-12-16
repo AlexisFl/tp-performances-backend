@@ -1,3 +1,4 @@
+Vous pouvez utiliser ce [GSheets](https://docs.google.com/spreadsheets/d/13Hw27U3CsoWGKJ-qDAunW9Kcmqe9ng8FROmZaLROU5c/copy?usp=sharing) pour suivre l'évolution de l'amélioration de vos performances au cours du TP 
 
 ## Question 2 : Utilisation Server Timing API
 
@@ -13,7 +14,7 @@
 
 ## Question 3 : Réduction du nombre de connexions PDO
 
-**Temps de chargement de la page** : 29.0
+**Temps de chargement de la page** : 31.1
 
 **Temps consommé par `getDB()`** 
 
@@ -33,42 +34,42 @@
 
 #### Amélioration de la méthode `getMeta` et donc de la méthode `getMetas` :
 
-- **Avant** 2.97 s
+- **Avant** 15.11s
 
 ```sql
 "SELECT * FROM wp_usermeta"
 ```
 
-- **Après** TEMPS
+- **Après** 8,77s
 
 ```sql
--- NOUVELLE REQ SQL
+"SELECT * FROM wp_usermeta WHERE user_id = :user_id AND meta_key = :meta_key"
 ```
 
 
 
-#### Amélioration de la méthode `METHOD` :
+#### Amélioration de la méthode `GetReviews'` :
 
-- **Avant** TEMPS
+- **Avant** 1.1m
 
 ```sql
--- REQ SQL DE BASE
+"SELECT * FROM wp_posts, wp_postmeta WHERE wp_posts.post_author = :hotelId AND wp_posts.ID = wp_postmeta.post_id AND meta_key = 'rating' AND post_type = 'review'"
 ```
 
-- **Après** TEMPS
+- **Après** 37,72s
 
 ```sql
--- NOUVELLE REQ SQL
+"SELECT COUNT(meta_value) as tot, AVG(meta_value) as moy FROM wp_posts, wp_postmeta WHERE wp_posts.post_author = :hotelId AND wp_posts.ID = wp_postmeta.post_id AND meta_key = 'rating' AND post_type = 'review' GROUP BY wp_posts.post_author;"
 ```
 
 
 
-#### Amélioration de la méthode `METHOD` :
+#### Amélioration de la méthode `getCheapestRoom` :
 
-- **Avant** TEMPS
+- **Avant** 1,2m
 
 ```sql
--- REQ SQL DE BASE
+"SELECT * FROM wp_posts WHERE post_author = :hotelId AND post_type = 'room'"
 ```
 
 - **Après** TEMPS
